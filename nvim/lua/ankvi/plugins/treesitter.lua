@@ -29,6 +29,9 @@ return {
 				"tsx",
 				"javascript",
 				"css",
+                "go",
+                "gomod",
+                "gosum"
 			},
 			highlight = { enable = true },
 			indent = { enable = true },
