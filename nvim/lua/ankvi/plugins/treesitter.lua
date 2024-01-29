@@ -31,7 +31,8 @@ return {
 				"css",
                 "go",
                 "gomod",
-                "gosum"
+                "gosum",
+                "rust"
 			},
 			highlight = { enable = true },
 			indent = { enable = true },

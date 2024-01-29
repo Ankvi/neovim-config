@@ -80,11 +80,6 @@ local get_server_configs = function()
 				["textDocument/definition"] = require("omnisharp_extended").handler,
 			},
 		},
-		rust_analyzer = {
-			settings = {
-				["rust-analyzer"] = {},
-			},
-		},
 		pyright = {
 			settings = {
 				python = {
