@@ -20,13 +20,18 @@ return {
 		table.insert(vimgrep_arguments, "--glob")
 		table.insert(vimgrep_arguments, "!**/.git/*")
 
-		vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
-		vim.keymap.set("n", "<C-p>", builtin.git_files, {})
+        local opts = {
+            noremap = true
+        }
+
+		vim.keymap.set("n", "<leader>pf", builtin.find_files, opts)
+		vim.keymap.set("n", "<C-p>", builtin.git_files, opts)
 		vim.keymap.set("n", "<leader>ps", function()
 			builtin.grep_string({ search = vim.fn.input("Grep > ") })
-		end, {})
-		vim.keymap.set("n", "<leader>vh", builtin.help_tags, {})
-		vim.keymap.set("n", "<leader>pv", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", {})
+		end, opts)
+		vim.keymap.set("n", "<leader>vh", builtin.help_tags, opts)
+		vim.keymap.set("n", "<leader>pv", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", opts)
+        vim.keymap.set("n", "<leader>pV", ":Telescope file_browser<CR>", opts)
 
 		telescope.setup({
 			defaults = {
