@@ -34,7 +34,10 @@ return {
 			"clang-format",
 			"prettierd",
 			"stylua",
-            "shfmt"
+            "shfmt",
+
+            -- DEBUGGING --
+            "js-debug-adapter"
 		}
 
 		require("mason-tool-installer").setup({

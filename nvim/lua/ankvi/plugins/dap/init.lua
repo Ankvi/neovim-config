@@ -3,12 +3,13 @@ return {
 	dependencies = {
 		"mfussenegger/nvim-dap",
 		"folke/neodev.nvim",
+		"mxsdev/nvim-dap-vscode-js",
 	},
 	config = function()
 		local dap = require("dap")
 
 		-- local masonBin = vim.fn.stdpath("data") .. "/mason/bin/"
-        require("ankvi.plugins.dap.languages").setup()
+		require("ankvi.plugins.dap.languages").setup()
 
 		require("neodev").setup({
 			library = {
@@ -20,7 +21,7 @@ return {
 		})
 
 		local dapui = require("dapui")
-        dapui.setup()
+		dapui.setup()
 
 		local dapUiConfigEvent = "dapui_config"
 		dap.listeners.after.event_initialized[dapUiConfigEvent] = function()
