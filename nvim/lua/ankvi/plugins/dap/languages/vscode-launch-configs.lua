@@ -15,7 +15,11 @@ M.get_launch_configs = function()
         return {}
     end
 
-	local vscodeLaunchConfig = vim.fn.json_decode(launchFile)
+	local status, vscodeLaunchConfig = pcall(vim.fn.json_decode, launchFile)
+
+    if not status then
+        return {}
+    end
 
 	if vscodeLaunchConfig == nil then
 		return {}
