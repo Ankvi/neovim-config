@@ -15,6 +15,14 @@ M.get_launch_configs = function()
         return {}
     end
 
+    for i, line in ipairs(launchFile) do
+        -- Look for lines that only include comments
+        local commentIndex = string.find(line, "^%s+%/%/")
+        if commentIndex ~= nil then
+            launchFile[i] = ""
+        end
+    end
+
 	local status, vscodeLaunchConfig = pcall(vim.fn.json_decode, launchFile)
 
     if not status then
