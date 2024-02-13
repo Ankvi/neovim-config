@@ -1,5 +1,3 @@
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -30,6 +28,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- NAVIGATING TABS
 
-vim.keymap.set("n", "<C-Shift-Tab>", vim.cmd.bprevious)
+vim.keymap.set("n", "<C-S-Tab>", vim.cmd.bprevious)
 vim.keymap.set("n", "<C-Tab>", vim.cmd.bnext)
 -- vim.keymap.set("n", "<A-c>", vim.cmd.bd)
