@@ -1,3 +1,8 @@
+---@class Task
+---@field label string
+---@field command string
+---@field args string[]
+
 local M = {}
 
 local configurations = {}
@@ -39,7 +44,71 @@ M.get_launch_configs = function()
 		end
 	end
 
+    M.has_loaded_configs = true
+
 	return configurations
+end
+
+---@type Task[] tasks
+local tasks = {}
+M.has_loaded_tasks = false
+
+
+---@type fun(): Task[] tasks
+function M.get_tasks()
+    if M.has_loaded_tasks then
+        return tasks
+    end
+
+	local vscodeTasksPath = vim.fn.getcwd() .. "/.vscode/tasks.json"
+    local status, tasksFile = pcall(vim.fn.readfile, vscodeTasksPath)
+
+    if not status then
+        return {}
+    end
+
+    for i, line in ipairs(tasksFile) do
+        -- Look for lines that only include comments
+        local commentIndex = string.find(line, "^%s+%/%/")
+        if commentIndex ~= nil then
+            tasksFile[i] = ""
+        end
+    end
+
+	local status, vscodeTasks = pcall(vim.fn.json_decode, tasksFile)
+
+    if not status then
+        return {}
+    end
+
+	if vscodeTasks == nil then
+		return {}
+	end
+
+
+	if vscodeTasks.tasks ~= nil then
+		for _, task in ipairs(vscodeTasks.tasks) do
+			table.insert(tasks, task)
+		end
+	end
+
+    M.has_loaded_tasks = true
+
+	return tasks
+end
+
+--- Get task with the given label
+--- @param label string
+---@return Task | nil
+function M.get_task_for_label(label)
+    for _, task in ipairs(M.get_tasks()) do
+        if task.label == label then
+            vim.notify("Found task!")
+            return task
+        end
+    end
+
+    return nil
 end
 
 return M

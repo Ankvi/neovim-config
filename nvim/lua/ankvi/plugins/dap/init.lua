@@ -8,7 +8,6 @@ return {
 	config = function()
 		local dap = require("dap")
 
-		-- local masonBin = vim.fn.stdpath("data") .. "/mason/bin/"
 		require("ankvi.plugins.dap.languages").setup()
 
 		require("neodev").setup({
