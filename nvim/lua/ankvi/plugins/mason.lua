@@ -15,6 +15,9 @@ return {
 
 		require("mason").setup()
 		require("mason-lspconfig").setup({
+            ensure_installed = {
+                "omnisharp@v1.39.8"
+            },
 			automatic_installation = {
 				exclude = servers.exclude_install,
 			},
