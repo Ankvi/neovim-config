@@ -103,7 +103,6 @@ end
 function M.get_task_for_label(label)
     for _, task in ipairs(M.get_tasks()) do
         if task.label == label then
-            vim.notify("Found task!")
             return task
         end
     end

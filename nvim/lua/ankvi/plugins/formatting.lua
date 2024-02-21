@@ -40,9 +40,9 @@ return {
 						-- vim.lsp.buf.format({ timeout = 1000, async = false })
 
 						-- If the file is C# then run fix usings
-						if vim.bo[0].filetype == "cs" then
-							require("csharp").fix_usings()
-						end
+						-- if vim.bo[0].filetype == "cs" then
+						-- 	require("csharp").fix_usings()
+						-- end
 					end,
 				})
 			end,
