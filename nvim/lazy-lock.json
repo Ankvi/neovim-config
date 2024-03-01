@@ -11,6 +11,7 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "conform.nvim": { "branch": "master", "commit": "c36fc6492be27108395443a67bcbd2b3280f29c5" },
+  "copilot.vim": { "branch": "release", "commit": "0754163b9d070d4a99d60ecb45f060bc5f97e281" },
   "crates.nvim": { "branch": "main", "commit": "ec2b04a380c9f3a8e6ca38c230e4990d71978143" },
   "csharpls-extended-lsp.nvim": { "branch": "master", "commit": "bde4aebe0dc74952188c2130c6831a1d8e4ce5c6" },
   "diffview.nvim": { "branch": "main", "commit": "3dc498c9777fe79156f3d32dddd483b8b3dbd95f" },
