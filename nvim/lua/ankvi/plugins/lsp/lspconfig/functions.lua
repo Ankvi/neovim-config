@@ -4,16 +4,11 @@ function M.on_attach(client, bufnr)
 	local opts = { buffer = bufnr, remap = true }
 
 	local telescope = require("telescope.builtin")
-	local previewer_opts = {
-		entry_maker = require("ankvi.plugins.telescope.customEntry").gen_from_quickfix(opts),
-	}
 
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 	vim.keymap.set("n", "gi", telescope.lsp_implementations, opts)
-	vim.keymap.set("n", "gr", function()
-		telescope.lsp_references(previewer_opts)
-	end, opts)
+	vim.keymap.set("n", "gr", telescope.lsp_references, opts)
 
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
