@@ -28,6 +28,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- NAVIGATING TABS
 
-vim.keymap.set("n", "<C-S-Tab>", vim.cmd.bprevious)
-vim.keymap.set("n", "<C-Tab>", vim.cmd.bnext)
+-- vim.keymap.set("n", "<C-S-Tab>", vim.cmd.bprevious)
+-- vim.keymap.set("n", "<C-Tab>", vim.cmd.bnext)
 -- vim.keymap.set("n", "<A-c>", vim.cmd.bd)
