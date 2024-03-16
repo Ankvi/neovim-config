@@ -1,5 +1,6 @@
 local HEIGHT_RATIO = 0.8
 local WIDTH_RATIO = 0.15
+local MIN_WIDTH = 40
 
 return {
 	"nvim-tree/nvim-tree.lua",
@@ -31,7 +32,9 @@ return {
 				-- 	end,
 				-- },
 				width = function()
-					return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+                    local windowWidth = vim.opt.columns:get()
+                    local width = math.floor(windowWidth * WIDTH_RATIO)
+                    return width > MIN_WIDTH and width or MIN_WIDTH
 				end,
 			},
 			renderer = {
