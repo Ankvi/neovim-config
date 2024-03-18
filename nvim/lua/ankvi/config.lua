@@ -39,7 +39,8 @@ vim.g.mapleader = " "
 
 vim.filetype.add({
     pattern = {
-        [".*/sway/config.d/.*%.conf"] = "swayconfig"
+        [".*/sway/config.d/.*%.conf"] = "swayconfig",
+        [".*/tmux/.*%.conf"] = "tmux"
     }
 })
 
