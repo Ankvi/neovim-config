@@ -21,6 +21,7 @@ return {
                 "gomod",
                 "gosum",
                 "html",
+                "hyprlang",
                 "ini",
                 "json",
                 "jsonc",

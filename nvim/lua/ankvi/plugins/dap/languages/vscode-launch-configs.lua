@@ -110,4 +110,56 @@ function M.get_task_for_label(label)
     return nil
 end
 
+local var_placeholders = {
+  ['${file}'] = function(_)
+    return vim.fn.expand("%:p")
+  end,
+  ['${fileBasename}'] = function(_)
+    return vim.fn.expand("%:t")
+  end,
+  ['${fileBasenameNoExtension}'] = function(_)
+    return vim.fn.fnamemodify(vim.fn.expand("%:t"), ":r")
+  end,
+  ['${fileDirname}'] = function(_)
+    return vim.fn.expand("%:p:h")
+  end,
+  ['${fileExtname}'] = function(_)
+    return vim.fn.expand("%:e")
+  end,
+  ['${relativeFile}'] = function(_)
+    return vim.fn.expand("%:.")
+  end,
+  ['${relativeFileDirname}'] = function(_)
+    return vim.fn.fnamemodify(vim.fn.expand("%:.:h"), ":r")
+  end,
+  ['${workspaceFolder}'] = function(_)
+    return vim.fn.getcwd()
+  end,
+  ['${workspaceFolderBasename}'] = function(_)
+    return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+  end,
+  ['${env:([%w_]+)}'] = function(match)
+    return os.getenv(match) or ''
+  end,
+}
+
+function M.expand_config_variables(option)
+  if type(option) == "table" then
+    local mt = getmetatable(option)
+    local result = {}
+    for k, v in pairs(option) do
+      result[M.expand_config_variables(k)] = M.expand_config_variables(v)
+    end
+    return setmetatable(result, mt)
+  end
+  if type(option) ~= "string" then
+    return option
+  end
+  local ret = option
+  for key, fn in pairs(var_placeholders) do
+    ret = ret:gsub(key, fn)
+  end
+  return ret
+end
+
 return M

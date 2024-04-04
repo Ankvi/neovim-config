@@ -14,10 +14,21 @@ M.configure_configurations = function()
 	local projectConfigurations = vscodeLaunchConfigs.get_launch_configs()
 	for _, config in ipairs(projectConfigurations) do
 		if config.preLaunchTask then
+			local program = config.program
 			local task = vscodeLaunchConfigs.get_task_for_label(config.preLaunchTask)
 			if task ~= nil then
-				local command = task.command .. " " .. table.concat(task.args, " ")
-				config.preLaunchTask = command
+				local expandedTask = vscodeLaunchConfigs.expand_config_variables(task)
+				config.program = function()
+					vim.notify("Building project...")
+
+					local command = expandedTask.command .. " " .. table.concat(expandedTask.args, " ")
+					vim.fn.system(command)
+					vim.notify("Project built!")
+					-- config.preLaunchTask = command
+					config.preLaunchTask = nil
+
+					return program
+				end
 			end
 		end
 		table.insert(dap.configurations.cs, config)

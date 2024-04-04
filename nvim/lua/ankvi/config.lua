@@ -8,7 +8,7 @@ vim.opt.relativenumber = true
 
 vim.opt.title = true
 vim.opt.titlelen = 0
-vim.opt.titlestring = 'neovim %{getcwd()}'
+vim.opt.titlestring = "neovim %{getcwd()}"
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -38,10 +38,11 @@ vim.opt.updatetime = 50
 vim.g.mapleader = " "
 
 vim.filetype.add({
-    pattern = {
-        [".*/sway/config.d/.*%.conf"] = "swayconfig",
-        [".*/tmux/.*%.conf"] = "tmux"
-    }
+	pattern = {
+		[".*/sway/config.d/.*%.conf"] = "swayconfig",
+		[".*/tmux/.*%.conf"] = "tmux",
+		[".*/hypr/.*%.conf"] = "hyprlang",
+	},
 })
 
 vim.diagnostic.config({
