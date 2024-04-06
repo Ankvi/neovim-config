@@ -6,7 +6,7 @@ return {
 	-- },
 	-- config = function()
 	-- 	local roslyn = require("roslyn")
-	-- 	local on_attach = require("ankvi.plugins.lsp.lspconfig.functions").on_attach
+	-- 	local on_attach = require("plugins.lsp.lspconfig.functions").on_attach
 	-- 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 	-- 	roslyn.setup({
 	-- 		on_attach = function(client, bufnr)

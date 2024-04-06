@@ -9,7 +9,7 @@ return {
 	config = function()
 		local dap = require("dap")
 
-		require("ankvi.plugins.dap.languages").setup()
+		require("plugins.dap.languages").setup()
 
 		require("neodev").setup({
 			library = {

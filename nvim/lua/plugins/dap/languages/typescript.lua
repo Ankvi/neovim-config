@@ -62,7 +62,7 @@ M.setup = function()
 		},
 	}
 
-	local projectConfigurations = require("ankvi.plugins.dap.languages.vscode-launch-configs").get_launch_configs()
+	local projectConfigurations = require("plugins.dap.languages.vscode-launch-configs").get_launch_configs()
 	for _, config in ipairs(projectConfigurations) do
 		table.insert(configurations, config)
 	end

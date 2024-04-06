@@ -11,7 +11,7 @@ return {
 	end,
 
 	config = function()
-		local servers = require("ankvi.plugins.lsp.lspconfig.servers")
+		local servers = require("plugins.lsp.lspconfig.servers")
 
 		require("mason").setup()
 		require("mason-lspconfig").setup({

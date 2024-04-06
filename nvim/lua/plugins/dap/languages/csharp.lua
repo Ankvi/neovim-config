@@ -2,7 +2,7 @@ local M = {}
 
 M.configure_configurations = function()
 	local dap = require("dap")
-	local vscodeLaunchConfigs = require("ankvi.plugins.dap.languages.vscode-launch-configs")
+	local vscodeLaunchConfigs = require("plugins.dap.languages.vscode-launch-configs")
 
 	dap.adapters.coreclr = {
 		type = "executable",

@@ -1,4 +1,4 @@
-local dotnet = require("ankvi.dotnet.dotnet")
+local dotnet = require("dotnet.dotnet")
 
 vim.api.nvim_create_user_command("Dotnet", function (opts)
     local command = table.remove(opts.fargs)

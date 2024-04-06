@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy = require("lazy")
 lazy.setup({
-    { import = "ankvi.plugins"},
-    { import = "ankvi.plugins.lsp" }
+    { import = "plugins"},
+    { import = "plugins.lsp" }
 })
 

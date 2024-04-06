@@ -21,13 +21,13 @@ return {
 		},
 	},
 	config = function()
-		local servers = require("ankvi.plugins.lsp.lspconfig.servers")
+		local servers = require("plugins.lsp.lspconfig.servers")
 		local configs = servers.get_server_configs()
 
 		-- vim.api.nvim_create_autocmd("LspAttach", {
 		-- 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 		-- 	callback = function(ev)
-  --               local lsp_functions = require("ankvi.plugins.lsp.lspconfig.functions")
+  --               local lsp_functions = require("plugins.lsp.lspconfig.functions")
   --               lsp_functions.on_attach({}, ev.buf)
 		-- 	end,
 		-- })
@@ -35,7 +35,7 @@ return {
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local common_setup_args = {
 			capabilities = capabilities,
-            -- on_attach = require("ankvi.plugins.lsp.lspconfig.functions").on_attach
+            -- on_attach = require("plugins.lsp.lspconfig.functions").on_attach
 		}
 
 		local lspconfig = require("lspconfig")
