@@ -42,6 +42,8 @@ vim.filetype.add({
 		[".*/sway/config.d/.*%.conf"] = "swayconfig",
 		[".*/tmux/.*%.conf"] = "tmux",
 		[".*/hypr/.*%.conf"] = "hyprlang",
+        [".*%.resx"] = "xml",
+        [".*.http"] = "http",
 	},
 })
 

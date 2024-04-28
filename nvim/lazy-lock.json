@@ -47,6 +47,7 @@
   "obsidian.nvim": { "branch": "main", "commit": "9644aca08334bb3f6fbeeccacc9e4dbb5855577e" },
   "omnisharp-extended-lsp.nvim": { "branch": "main", "commit": "6e0aa6465f8fa8ac6c833f6ac4713adfee0202a0" },
   "plenary.nvim": { "branch": "master", "commit": "8aad4396840be7fc42896e3011751b7609ca4119" },
+  "rest.nvim": { "branch": "main", "commit": "60428cc313b8cb11fa8fb1b94f289b14d3121fa4" },
   "rustaceanvim": { "branch": "master", "commit": "3d3818a6e4f88e1ccf40088df0cc3f525e0cbdf8" },
   "schemastore.nvim": { "branch": "main", "commit": "a78822176d936d6b3e12fff25df69a9c49a84ba0" },
   "suda.vim": { "branch": "master", "commit": "d0ccc1a5172f6a26182238767e60e08b931d11fa" },
