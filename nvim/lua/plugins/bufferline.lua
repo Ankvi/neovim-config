@@ -11,9 +11,10 @@ return {
     },
     version = "*",
     config = function()
-        require("bufferline").setup()
-        vim.keymap.set("n", "<A-,>", vim.cmd.bprevious)
-        vim.keymap.set("n", "<A-.>", vim.cmd.bnext)
-        vim.keymap.set("n", "<A-c>", vim.cmd.bd)
+        require("bufferline").setup({
+            options = {
+                diagnostics = "nvim_lsp",
+            }
+        })
     end
 }

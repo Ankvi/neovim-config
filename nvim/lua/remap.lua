@@ -21,13 +21,11 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+-- NAVIGATING BUFFERS
+vim.keymap.set("n", "<A-,>", vim.cmd.bprevious)
+vim.keymap.set("n", "<A-.>", vim.cmd.bnext)
+vim.keymap.set("n", "<A-c>", vim.cmd.bd)
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
-
--- NAVIGATING TABS
-
--- vim.keymap.set("n", "<C-S-Tab>", vim.cmd.bprevious)
--- vim.keymap.set("n", "<C-Tab>", vim.cmd.bnext)
--- vim.keymap.set("n", "<A-c>", vim.cmd.bd)
