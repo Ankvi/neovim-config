@@ -7,13 +7,14 @@ end
 
 return {
 	"hrsh7th/nvim-cmp",
-    event = { "InsertEnter", "CmdlineEnter" },
+	event = { "InsertEnter", "CmdlineEnter" },
 	dependencies = {
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
 		{ "hrsh7th/cmp-cmdline" },
 		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
+		{ "zbirenbaum/copilot-cmp" },
 		{
 			"L3MON4D3/LuaSnip",
 			version = "2.*",
@@ -31,7 +32,7 @@ return {
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 		local luasnip = require("luasnip")
 
-        require("luasnip.loaders.from_vscode").lazy_load()
+		require("luasnip.loaders.from_vscode").lazy_load()
 
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
@@ -74,10 +75,11 @@ return {
 				["<C-e>"] = cmp.mapping.abort(),
 			},
 			sources = {
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				{ name = "buffer" },
-				{ name = "nvim_lsp_signature_help" },
+				{ name = "copilot", group_index = 2 },
+				{ name = "nvim_lsp", group_index = 2 },
+				{ name = "luasnip", group_index = 2 },
+				{ name = "buffer", group_index = 2 },
+				{ name = "nvim_lsp_signature_help", group_index = 2 },
 			},
 		})
 

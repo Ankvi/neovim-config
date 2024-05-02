@@ -1,12 +1,19 @@
 return {
-	"github/copilot.vim",
+	"zbirenbaum/copilot-cmp",
 	dependencies = {
-		"nvim-lua/plenary.nvim",
+		{
+			"zbirenbaum/copilot.lua",
+			cmd = "Copilot",
+			event = "InsertEnter",
+			config = function()
+				require("copilot").setup({
+					suggestion = { enabled = false },
+					panel = { enabled = false },
+				})
+			end,
+		},
 	},
 	config = function()
-		local async = require("plenary.async")
-		async.void(function()
-			vim.cmd("Copilot setup")
-		end)
+		require("copilot_cmp").setup()
 	end,
 }
