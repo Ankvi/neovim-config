@@ -34,6 +34,9 @@ vim.opt.isfname:append("@-@")
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.updatetime = 50
+
+vim.opt.conceallevel = 1
+
 --vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
