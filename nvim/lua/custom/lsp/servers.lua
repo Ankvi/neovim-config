@@ -118,6 +118,5 @@ end
 return {
 	get_server_configs = get_server_configs,
 	exclude_install = {
-		"omnisharp",
 	},
 }
