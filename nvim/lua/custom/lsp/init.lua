@@ -1,5 +1,4 @@
 local servers = require("custom.lsp.servers")
-local configs = servers.get_server_configs()
 
 -- vim.api.nvim_create_autocmd("LspAttach", {
 -- 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -16,6 +15,6 @@ local common_setup_args = {
 }
 
 local lspconfig = require("lspconfig")
-for name, opts in pairs(configs) do
+for name, opts in pairs(servers.server_configs) do
 	lspconfig[name].setup(vim.tbl_extend("force", common_setup_args, opts))
 end

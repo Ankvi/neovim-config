@@ -22,8 +22,15 @@ return {
 				name = "work",
 				path = "~/vaults/work",
 			},
+            {
+                name = "local",
+                path = "~/vaults/local"
+            },
+            {
+                name = "personal",
+                path = "~/vaults/personal"
+            }
 		},
-
 		-- see below for full list of options 👇
 	},
 }

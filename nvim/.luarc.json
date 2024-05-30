@@ -27,6 +27,7 @@
         "/home/andreas/.local/share/nvim/lazy/nvim-treesitter-context/lua",
         "/home/andreas/.local/share/nvim/lazy/rose-pine/lua",
         "/home/andreas/git/github.com/Ankvi/dotfiles/neovim/.config/nvim/lua",
+        "/home/andreas/git/github.com/Ankvi/dotfiles/neovim/.config/nvim/after",
         "${3rd}/luv/library",
         "${3rd}/luassert/library"
     ]

@@ -11,16 +11,9 @@ return {
 	end,
 
 	config = function()
-		local servers = require("custom.lsp.servers")
-
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-            ensure_installed = {
-                "omnisharp@v1.39.8"
-            },
-			automatic_installation = {
-				exclude = servers.exclude_install,
-			},
+			automatic_installation = true
 		})
 
 		local tools = {--vim.tbl_extend("keep", vim.tbl_keys(servers.get_server_configs()), {
