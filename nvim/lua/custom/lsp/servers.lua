@@ -79,6 +79,9 @@ local configs = {
 			["textDocument/definition"] = require("omnisharp_extended").handler,
 		},
 	},
+	powershell_es = {
+        -- cmd = { path.concat { vim.fn.stdpath("data"), "mason", "powershell", "PowerShellEditorServices", "Start-EditorServices.ps1" } },
+    },
 	pyright = {
 		settings = {
 			python = {
