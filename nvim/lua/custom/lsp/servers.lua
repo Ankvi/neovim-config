@@ -80,7 +80,7 @@ local configs = {
 		},
 	},
 	powershell_es = {
-        -- cmd = { path.concat { vim.fn.stdpath("data"), "mason", "powershell", "PowerShellEditorServices", "Start-EditorServices.ps1" } },
+        bundle_path = require("mason-core.path").package_prefix("powershell-editor-services"),
     },
 	pyright = {
 		settings = {
