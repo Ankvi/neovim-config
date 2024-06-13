@@ -17,12 +17,12 @@ local configs = {
 		single_file_support = false,
 	},
 	clangd = {},
-	-- csharp_ls = {
-	-- 	root_dir = lspconfig_util.root_pattern("*.sln"),
-	-- 	handlers = {
-	-- 		["textDocument/definition"] = require("csharpls_extended").handler,
-	-- 	},
-	-- },
+	csharp_ls = {
+		handlers = {
+			["textDocument/definition"] = require("csharpls_extended").handler,
+			["textDocument/typeDefinition"] = require("csharpls_extended").handler,
+		},
+	},
 	gopls = {},
 	cssls = {},
 	dockerls = {},
@@ -70,18 +70,18 @@ local configs = {
 			return true
 		end,
 	},
-	omnisharp = {
-		cmd = { "omnisharp" },
-		enable_roslyn_analyzers = true,
-		enable_import_completion = true,
-		organize_imports_on_format = true,
-		handlers = {
-			["textDocument/definition"] = require("omnisharp_extended").handler,
-		},
-	},
+	-- omnisharp = {
+	-- 	cmd = { "omnisharp" },
+	-- 	enable_roslyn_analyzers = true,
+	-- 	enable_import_completion = true,
+	-- 	organize_imports_on_format = true,
+	-- 	handlers = {
+	-- 		["textDocument/definition"] = require("omnisharp_extended").handler,
+	-- 	},
+	-- },
 	powershell_es = {
-        bundle_path = require("mason-core.path").package_prefix("powershell-editor-services"),
-    },
+		bundle_path = require("mason-core.path").package_prefix("powershell-editor-services"),
+	},
 	pyright = {
 		settings = {
 			python = {
