@@ -8,16 +8,18 @@ return {
 			formatters_by_ft = {
 				sh = { "shfmt" },
 				markdown = { "prettierd" },
-				javascript = { "prettierd" },
-				javascriptreact = { "prettierd" },
-				typescript = { "prettierd" },
-				typescriptreact = { "prettierd" },
+				javascript = { { "biome-check", "prettierd" } },
+				javascriptreact = { { "biome-check", "prettierd" } },
+				typescript = { { "biome-check", "prettierd" } },
+				typescriptreact = { { "biome-check", "prettierd" } },
 				css = { "prettierd" },
 				html = { "prettierd" },
-				json = { "prettierd" },
+				json = { { "biome-check", "prettierd" } },
+                jsonc = { "biome-check" },
 				yaml = { "prettierd" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+                cs = { "csharpier" }
 			},
 		})
 

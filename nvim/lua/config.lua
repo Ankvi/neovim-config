@@ -48,6 +48,9 @@ vim.filetype.add({
 		[".*/hypr/.*%.conf"] = "hyprlang",
         [".*%.resx"] = "xml",
         [".*.http"] = "http",
+        [".*.zmk"] = "dts",
+        [".*.dtsi.min"] = "dts",
+        [".*.keymap"] = "dts"
 	},
 })
 

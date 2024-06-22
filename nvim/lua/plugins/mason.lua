@@ -31,6 +31,7 @@ return {
 			"prettierd",
 			"stylua",
             "shfmt",
+            "csharpier",
 
             -- DEBUGGING --
             "js-debug-adapter"
