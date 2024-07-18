@@ -46,20 +46,28 @@ vim.filetype.add({
 		[".*/sway/config.d/.*%.conf"] = "swayconfig",
 		[".*/tmux/.*%.conf"] = "tmux",
 		[".*/hypr/.*%.conf"] = "hyprlang",
-        [".*%.resx"] = "xml",
-        [".*.http"] = "http",
-        [".*.zmk"] = "dts",
-        [".*.dtsi.min"] = "dts",
-        [".*.keymap"] = "dts"
+		[".*%.resx"] = "xml",
+		[".*.http"] = "http",
+		[".*.zmk"] = "dts",
+		[".*.dtsi.min"] = "dts",
+		[".*.keymap"] = "dts",
 	},
 })
 
+local signs = {
+	ERROR = " ",
+	WARN = " ",
+	HINT = "󰌵",
+	INFO = " ",
+}
+
 vim.diagnostic.config({
 	virtual_text = {
-		prefix = "●",
+		prefix = function(diagnostic)
+			return signs[vim.diagnostic.severity[diagnostic.severity]]
+		end,
 	},
-	-- update_in_insert = true,
-	float = {
-		source = true, -- Or "if_many"
-	},
+    float = {
+        source = true
+    }
 })
