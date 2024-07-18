@@ -1,45 +1,49 @@
+local opt = vim.opt
+local o = vim.o
+local g = vim.g
+
 vim.scriptencoding = "utf-8"
-vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
+o.encoding = "utf-8"
+o.fileencoding = "utf-8"
 
-vim.opt.guicursor = ""
-vim.opt.nu = true
-vim.opt.relativenumber = true
+o.guicursor = ""
+o.number = true
+o.relativenumber = true
 
-vim.opt.title = true
-vim.opt.titlelen = 0
-vim.opt.titlestring = "neovim %{getcwd()}"
+o.title = true
+o.titlelen = 0
+o.titlestring = "neovim %{getcwd()}"
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+o.tabstop = 4
+o.softtabstop = 4
+o.shiftwidth = 4
+o.expandtab = true
 
-vim.opt.smartindent = true
-vim.opt.autoindent = true
+o.smartindent = true
+o.autoindent = true
 
-vim.opt.wrap = false
+o.wrap = false
 
-vim.opt.swapfile = false
-vim.opt.undofile = true
+o.swapfile = false
+o.undofile = true
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+o.hlsearch = false
+o.incsearch = true
 
-vim.opt.termguicolors = true
+o.termguicolors = true
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+o.scrolloff = 8
+o.signcolumn = "yes"
+o.isfname = "@-@"
 
-vim.opt.clipboard:append("unnamedplus")
-vim.opt.wildignore:append({ "*/node_modules/*" })
-vim.opt.updatetime = 50
+o.clipboard = "unnamedplus"
+opt.wildignore:append({ "*/node_modules/*" })
+o.updatetime = 50
 
-vim.opt.conceallevel = 1
+o.conceallevel = 1
 
---vim.opt.colorcolumn = "80"
-vim.g.mapleader = " "
+--opt.colorcolumn = "80"
+g.mapleader = " "
 
 vim.filetype.add({
 	pattern = {
@@ -66,6 +70,9 @@ vim.diagnostic.config({
 		prefix = function(diagnostic)
 			return signs[vim.diagnostic.severity[diagnostic.severity]]
 		end,
+        severity = {
+            min = vim.diagnostic.severity.WARN
+        }
 	},
     float = {
         source = true

@@ -10,6 +10,11 @@ return {
 			options = {
 				theme = "catppuccin",
 			},
+			sections = {
+				lualine_b = { "diagnostics" },
+				lualine_x = { "filetype" },
+				lualine_y = {},
+			},
 		})
 	end,
 }
