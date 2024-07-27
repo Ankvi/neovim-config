@@ -7,7 +7,7 @@ local conform_util = require("conform.util")
 -- 	if conform.get_formatter_info("biome", bufnr).available then
 -- 		return { "biome-check" }
 -- 	else
--- 		return { "prettierd" }
+-- 		return { "prettierd", "prettier" }
 -- 	end
 -- end
 --
@@ -23,22 +23,22 @@ local conform_util = require("conform.util")
 conform.setup({
 	formatters_by_ft = {
 		sh = { "shfmt" },
-		markdown = { "prettierd" },
-		javascript = { { "biome-check", "prettierd" } },
-		javascriptreact = { { "biome-check", "prettierd" } },
-		typescript = { { "biome-check", "prettierd" } },
-		typescriptreact = { { "biome-check", "prettierd" } },
+		markdown = { "prettierd", "prettier" },
+		javascript = { "biome-check", "prettierd", "prettier", stop_after_first = true },
+		javascriptreact = { "biome-check", "prettierd", "prettier", stop_after_first = true },
+		typescript = { "biome-check", "prettierd", "prettier", stop_after_first = true },
+		typescriptreact = { "biome-check", "prettierd", "prettier", stop_after_first = true },
 		-- javascript = biome_or_prettierd,
 		-- javascriptreact = biome_or_prettierd,
 		-- typescript = biome_or_prettierd,
 		-- typescriptreact = biome_or_prettierd,
-		css = { "prettierd" },
-		html = { "prettierd" },
-		json = { { "biome-check", "prettierd" } },
+		css = { "prettierd", "prettier" },
+		html = { "prettierd", "prettier" },
+		json = { "biome-check", "prettierd", "prettier", stop_after_first = true },
 		jsonc = { "biome-check" },
 		-- json = biome_or_prettierd,
 		-- jsonc = biome_or_prettierd,
-		yaml = { "prettierd" },
+		yaml = { "prettierd", "prettier" },
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		cs = { "csharpier" },
