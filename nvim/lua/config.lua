@@ -58,23 +58,19 @@ vim.filetype.add({
 	},
 })
 
-local signs = {
-	ERROR = " ",
-	WARN = " ",
-	HINT = "󰌵",
-	INFO = " ",
-}
+local severity = vim.diagnostic.severity
 
 vim.diagnostic.config({
-	virtual_text = {
-		prefix = function(diagnostic)
-			return signs[vim.diagnostic.severity[diagnostic.severity]]
-		end,
-        severity = {
-            min = vim.diagnostic.severity.WARN
-        }
-	},
-    float = {
-        source = true
-    }
-})
+    virtual_text = { prefix = "" },
+    signs = { text = { [severity.ERROR] = "󰅙", [severity.WARN] = "", [severity.INFO] = "󰋼", [severity.HINT] = "󰌵" } },
+    underline = true,
+    float = { border = "single" },
+	-- virtual_text = {
+	-- 	prefix = function(diagnostic)
+	-- 		return signs[vim.diagnostic.severity[diagnostic.severity]]
+	-- 	end,
+ --        severity = {
+ --            min = vim.diagnostic.severity.HINT
+ --        }
+	-- },
+}) 

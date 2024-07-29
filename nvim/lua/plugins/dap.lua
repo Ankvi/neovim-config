@@ -9,4 +9,5 @@ return {
 	config = function()
         require("custom.dap")
 	end,
+    event = "VeryLazy"
 }
