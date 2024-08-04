@@ -1,9 +1,9 @@
 local M = {}
 
-function M.on_attach(_, bufnr)
+function M.on_attach(client, bufnr)
 	local function opts(description)
-        return { buffer = bufnr, remap = true, desc = "LSP " .. description}
-    end
+		return { buffer = bufnr, remap = true, desc = "LSP " .. description }
+	end
 
 	local telescope = require("telescope.builtin")
 
@@ -22,6 +22,17 @@ function M.on_attach(_, bufnr)
 	vim.keymap.set("i", "<C-f>", vim.lsp.buf.code_action, opts("Code action"))
 	vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts("Rename symbol"))
 	vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts("Signature help"))
+
+	local language_specific_keymaps = require("custom.lsp.keymaps")
+	local language_keymaps = language_specific_keymaps[client.name]
+
+	if language_keymaps == nil then
+		return
+	end
+
+	for _, keymap in ipairs(language_keymaps) do
+		vim.keymap.set("n", keymap.keymap, keymap.action, opts(keymap.desc))
+	end
 end
 
 return M
