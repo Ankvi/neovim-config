@@ -29,8 +29,8 @@ return {
 	-- Rust things
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^4", -- Recommended
-		ft = { "rust" },
+		version = "^5", -- Recommended
+        lazy = false
 	},
 	{
 		"saecki/crates.nvim",

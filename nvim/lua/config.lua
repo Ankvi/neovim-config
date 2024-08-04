@@ -73,4 +73,6 @@ vim.diagnostic.config({
  --            min = vim.diagnostic.severity.HINT
  --        }
 	-- },
-}) 
+})
+
+vim.lsp.inlay_hint.enable(true)

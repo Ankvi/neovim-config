@@ -13,28 +13,28 @@ return {
 	config = function()
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-			automatic_installation = true
+			automatic_installation = true,
 		})
 
-		local tools = {--vim.tbl_extend("keep", vim.tbl_keys(servers.get_server_configs()), {
+		local tools = { --vim.tbl_extend("keep", vim.tbl_keys(servers.get_server_configs()), {
 			-- LINTERS --
 			"actionlint",
 			"cpplint",
 			"markdownlint",
 			"pylint",
 			"shellcheck",
-            "stylelint",
+			"stylelint",
 
 			-- FORMATTERS --
 			"black",
 			"clang-format",
 			"prettierd",
 			"stylua",
-            "shfmt",
-            "csharpier",
+			"shfmt",
+			"csharpier",
 
-            -- DEBUGGING --
-            "js-debug-adapter"
+			-- DEBUGGING --
+			"js-debug-adapter",
 		}
 
 		require("mason-tool-installer").setup({
