@@ -21,7 +21,7 @@ end
 vim.keymap.set("n", "<leader>pf", builtin.find_files, opts("List all files in working directory"))
 vim.keymap.set("n", "<C-p>", builtin.git_files, opts("List all files tracked by git in the working directory"))
 vim.keymap.set("n", "<leader>lm", function()
-    builtin.git_files({ git_command = { "git", "ls-files", "--modified", show_untracked = true }})
+    builtin.git_files({ git_command = { "git", "ls-files", "--modified", "--exclude-standard", "--others" }})
 end, opts("List all modified files in the working directory"))
 vim.keymap.set("n", "<leader><Tab>", builtin.buffers, opts("List all currently open buffers"))
 vim.keymap.set("n", "<leader>ps", function()

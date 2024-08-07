@@ -13,7 +13,7 @@ local configs = {
 	},
 	bashls = {},
 	biome = {
-		root_dir = lspconfig_util.root_pattern("biome.json"),
+		root_dir = lspconfig_util.root_pattern("biome.json", "biome.jsonc"),
 		single_file_support = false,
 	},
 	clangd = {},

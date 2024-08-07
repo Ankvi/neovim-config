@@ -61,6 +61,7 @@ vim.filetype.add({
 local severity = vim.diagnostic.severity
 
 vim.diagnostic.config({
+    severity_sort = true,
     virtual_text = { prefix = "" },
     signs = { text = { [severity.ERROR] = "󰅙", [severity.WARN] = "", [severity.INFO] = "󰋼", [severity.HINT] = "󰌵" } },
     underline = true,

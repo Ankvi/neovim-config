@@ -1,21 +1,53 @@
-local has_words_before = function()
-	---@diagnostic disable-next-line: deprecated
-	unpack = unpack or table.unpack
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
 local cmp = require("cmp")
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local luasnip = require("luasnip")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local function border(hl_name)
+	return {
+		{ "╭", hl_name },
+		{ "─", hl_name },
+		{ "╮", hl_name },
+		{ "│", hl_name },
+		{ "╯", hl_name },
+		{ "─", hl_name },
+		{ "╰", hl_name },
+		{ "│", hl_name },
+	}
+end
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
 cmp.setup({
+	completion = {
+		completeopt = "menu,menuone",
+	},
+	window = {
+		documentation = {
+			border = border("CmpDocBorder"),
+		},
+		-- completion = {
+		-- 	side_padding = 0,
+		-- 	winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+		-- 	scrollbar = false,
+		-- },
+	},
+	formatting = {
+		fields = { "abbr", "kind", "menu" },
+
+		format = function(_, item)
+			local icons = require("custom.icons.lspkind")
+			local icon = icons[item.kind] or ""
+
+			icon = (" " .. icon .. " ")
+			item.kind = string.format("%s %s", icon, item.kind)
+
+			return item
+		end,
+	},
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -23,40 +55,41 @@ cmp.setup({
 	},
 	preselect = "item",
 	mapping = {
-		["<C-u>"] = cmp.mapping.scroll_docs(-4), -- Up
-		["<C-d>"] = cmp.mapping.scroll_docs(4), -- Down
-		["<C-p>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item(cmp_select)
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
+		["<C-d>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.close(),
+
+		["<Tab>"] = cmp.mapping.confirm({
+			select = true,
+		}),
+
 		["<C-n>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item(cmp_select)
-				-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-				-- that way you will only jump inside the snippet region
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif has_words_before() then
-				cmp.complete()
+			elseif require("luasnip").expand_or_jumpable() then
+				require("luasnip").expand_or_jump()
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
-		["<Tab>"] = cmp.mapping.confirm({ selected = true }),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.abort(),
+
+		["<C-p>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item(cmp_select)
+			elseif require("luasnip").jumpable(-1) then
+				require("luasnip").jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 	},
 	sources = {
-		{ name = "copilot", group_index = 2 },
-		{ name = "nvim_lsp", group_index = 2 },
-		{ name = "luasnip", group_index = 2 },
-		{ name = "buffer", group_index = 2 },
-		{ name = "nvim_lsp_signature_help", group_index = 2 },
+		{ name = "copilot" },
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+		{ name = "buffer" },
+		{ name = "nvim_lsp_signature_help" },
 	},
 })
 
