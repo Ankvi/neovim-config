@@ -16,6 +16,7 @@ conform.setup({
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		cs = { "csharpier" },
+		xml = { lsp_format = "never" },
 	},
 	formatters = {
 		["biome-check"] = {
@@ -25,12 +26,12 @@ conform.setup({
 			require_cwd = true,
 		},
 	},
-    default_format_opts = {
-        lsp_format = "fallback"
-    },
-    format_on_save = {
-        timeout_ms = 1000
-    }
+	default_format_opts = {
+		lsp_format = "fallback",
+	},
+	format_on_save = {
+		timeout_ms = 1000,
+	},
 })
 
 vim.keymap.set({ "n", "v" }, "<F3>", function()
