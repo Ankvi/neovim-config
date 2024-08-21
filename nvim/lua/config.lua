@@ -50,6 +50,8 @@ vim.filetype.add({
 		[".*/sway/config.d/.*%.conf"] = "swayconfig",
 		[".*/tmux/.*%.conf"] = "tmux",
 		[".*/hypr/.*%.conf"] = "hyprlang",
+		[".*/kitty/.*%.conf"] = "kitty",
+		[".*/kitty.conf"] = "kitty",
 		[".*%.resx"] = "xml",
 		[".*.http"] = "http",
 		[".*.zmk"] = "dts",
@@ -61,18 +63,25 @@ vim.filetype.add({
 local severity = vim.diagnostic.severity
 
 vim.diagnostic.config({
-    severity_sort = true,
-    virtual_text = { prefix = "" },
-    signs = { text = { [severity.ERROR] = "󰅙", [severity.WARN] = "", [severity.INFO] = "󰋼", [severity.HINT] = "󰌵" } },
-    underline = true,
-    float = { border = "single" },
+	severity_sort = true,
+	virtual_text = { prefix = "" },
+	signs = {
+		text = {
+			[severity.ERROR] = "󰅙",
+			[severity.WARN] = "",
+			[severity.INFO] = "󰋼",
+			[severity.HINT] = "󰌵",
+		},
+	},
+	underline = true,
+	float = { border = "single" },
 	-- virtual_text = {
 	-- 	prefix = function(diagnostic)
 	-- 		return signs[vim.diagnostic.severity[diagnostic.severity]]
 	-- 	end,
- --        severity = {
- --            min = vim.diagnostic.severity.HINT
- --        }
+	--        severity = {
+	--            min = vim.diagnostic.severity.HINT
+	--        }
 	-- },
 })
 

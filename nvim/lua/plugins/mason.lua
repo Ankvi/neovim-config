@@ -22,8 +22,6 @@ return {
 			"cpplint",
 			"markdownlint",
 			"pylint",
-			"shellcheck",
-			"stylelint",
 
 			-- FORMATTERS --
 			"black",
