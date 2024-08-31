@@ -46,43 +46,46 @@ o.conceallevel = 1
 g.mapleader = " "
 
 vim.filetype.add({
-	pattern = {
-		[".*/sway/config.d/.*%.conf"] = "swayconfig",
-		[".*/tmux/.*%.conf"] = "tmux",
-		[".*/hypr/.*%.conf"] = "hyprlang",
-		[".*/kitty/.*%.conf"] = "kitty",
-		[".*/kitty.conf"] = "kitty",
-		[".*%.resx"] = "xml",
-		[".*.http"] = "http",
-		[".*.zmk"] = "dts",
-		[".*.dtsi.min"] = "dts",
-		[".*.keymap"] = "dts",
-	},
+    pattern = {
+        [".*/sway/config.d/.*%.conf"] = "swayconfig",
+        [".*/tmux/.*%.conf"] = "tmux",
+        [".*/hypr/.*%.conf"] = "hyprlang",
+        [".*/kitty/.*%.conf"] = "kitty",
+        [".*/kitty.conf"] = "kitty",
+        [".*%.resx"] = "xml",
+        [".*.http"] = "http",
+        [".*.zmk"] = "dts",
+        [".*.dtsi.min"] = "dts",
+        [".*.keymap"] = "dts",
+    },
+    extension = {
+        wofi = "rasi",
+    },
 })
 
 local severity = vim.diagnostic.severity
 
 vim.diagnostic.config({
-	severity_sort = true,
-	virtual_text = { prefix = "" },
-	signs = {
-		text = {
-			[severity.ERROR] = "󰅙",
-			[severity.WARN] = "",
-			[severity.INFO] = "󰋼",
-			[severity.HINT] = "󰌵",
-		},
-	},
-	underline = true,
-	float = { border = "single" },
-	-- virtual_text = {
-	-- 	prefix = function(diagnostic)
-	-- 		return signs[vim.diagnostic.severity[diagnostic.severity]]
-	-- 	end,
-	--        severity = {
-	--            min = vim.diagnostic.severity.HINT
-	--        }
-	-- },
+    severity_sort = true,
+    virtual_text = { prefix = "" },
+    signs = {
+        text = {
+            [severity.ERROR] = "󰅙",
+            [severity.WARN] = "",
+            [severity.INFO] = "󰋼",
+            [severity.HINT] = "󰌵",
+        },
+    },
+    underline = true,
+    float = { border = "single" },
+    -- virtual_text = {
+    -- 	prefix = function(diagnostic)
+    -- 		return signs[vim.diagnostic.severity[diagnostic.severity]]
+    -- 	end,
+    --        severity = {
+    --            min = vim.diagnostic.severity.HINT
+    --        }
+    -- },
 })
 
 -- vim.lsp.inlay_hint.enable(true)
