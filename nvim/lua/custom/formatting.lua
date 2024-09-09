@@ -15,7 +15,7 @@ conform.setup({
 		yaml = { "prettierd", "prettier" },
 		lua = { "stylua" },
 		python = { "isort", "black" },
-		cs = { "csharpier" },
+		-- cs = { "csharpier" },
 		xml = { lsp_format = "never" },
 	},
 	formatters = {
