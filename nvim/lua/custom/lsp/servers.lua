@@ -1,6 +1,8 @@
 local lspconfig_util = require("lspconfig.util")
 local schemastore = require("schemastore")
 
+-- local formatting_group = vim.api.nvim_create_augroup("LspFormatting", {})
+
 local configs = {
     arduino_language_server = {
         cmd = {
@@ -15,14 +17,23 @@ local configs = {
     biome = {
         root_dir = lspconfig_util.root_pattern("biome.json", "biome.jsonc"),
         single_file_support = false,
+        -- on_attach = function(client, bufnr)
+        --     vim.api.nvim_create_autocmd("BufWritePre", {
+        --         group = formatting_group,
+        --         buffer = bufnr,
+        --         callback = function()
+        --
+        --         end,
+        --     })
+        -- end,
     },
     clangd = {},
-    csharp_ls = {
-        handlers = {
-            ["textDocument/definition"] = require("csharpls_extended").handler,
-            ["textDocument/typeDefinition"] = require("csharpls_extended").handler,
-        },
-    },
+    -- csharp_ls = {
+    --     handlers = {
+    --         ["textDocument/definition"] = require("csharpls_extended").handler,
+    --         ["textDocument/typeDefinition"] = require("csharpls_extended").handler,
+    --     },
+    -- },
     gopls = {},
     cssls = {},
     dockerls = {},
@@ -71,15 +82,24 @@ local configs = {
     -- 		return true
     -- 	end,
     -- },
-    -- omnisharp = {
-    -- 	cmd = { "omnisharp" },
-    -- 	enable_roslyn_analyzers = true,
-    -- 	enable_import_completion = true,
-    -- 	organize_imports_on_format = true,
-    -- 	handlers = {
-    -- 		["textDocument/definition"] = require("omnisharp_extended").handler,
-    -- 	},
-    -- },
+    omnisharp = {
+        cmd = { "omnisharp" },
+        settings = {
+            FormattingOptions = {
+                OrganizeImports = true,
+            },
+            RoslynExtensionsOptions = {
+                EnableAnalyzersSupport = true,
+                EnableImportCompletion = true,
+            },
+        },
+        -- enable_roslyn_analyzers = true,
+        -- enable_import_completion = true,
+        -- organize_imports_on_format = true,
+        handlers = {
+            ["textDocument/definition"] = require("omnisharp_extended").handler,
+        },
+    },
     powershell_es = {
         bundle_path = require("mason-core.path").package_prefix("powershell-editor-services"),
     },
