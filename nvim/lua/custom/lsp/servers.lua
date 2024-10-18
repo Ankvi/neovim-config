@@ -4,16 +4,16 @@ local schemastore = require("schemastore")
 -- local formatting_group = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local configs = {
-    arduino_language_server = {
-        cmd = {
-            "arduino-language-server",
-            "-cli-config",
-            "$HOME/.arduino15/arduino-cli.yaml",
-            "-fqbn",
-            "arduino:avr:micro",
-        },
-    },
-    bashls = {},
+    -- arduino_language_server = {
+    --     cmd = {
+    --         "arduino-language-server",
+    --         "-cli-config",
+    --         "$HOME/.arduino15/arduino-cli.yaml",
+    --         "-fqbn",
+    --         "arduino:avr:micro",
+    --     },
+    -- },
+    -- bashls = {},
     biome = {
         root_dir = lspconfig_util.root_pattern("biome.json", "biome.jsonc"),
         single_file_support = false,
@@ -27,7 +27,7 @@ local configs = {
         --     })
         -- end,
     },
-    clangd = {},
+    -- clangd = {},
     -- csharp_ls = {
     --     handlers = {
     --         ["textDocument/definition"] = require("csharpls_extended").handler,
