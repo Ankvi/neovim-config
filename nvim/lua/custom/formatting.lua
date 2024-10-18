@@ -24,12 +24,6 @@ conform.setup({
         biome = {
             require_cwd = true,
         },
-        prettier = {
-            require_cwd = true,
-        },
-        prettierd = {
-            require_cwd = true,
-        },
     },
     default_format_opts = {
         lsp_format = "fallback",
