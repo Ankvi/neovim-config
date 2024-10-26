@@ -28,12 +28,30 @@ conform.setup({
     default_format_opts = {
         lsp_format = "fallback",
     },
-    -- format_on_save = {
-    --     timeout_ms = 1000,
-    -- },
 })
 
--- vim.api.nvim_create_autocmd("BufWritePre")
+local skip_on_save = {
+    ["csharpier"] = true,
+}
+
+local augroup = vim.api.nvim_create_augroup("CustomFormatting", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    desc = "Format on save",
+    pattern = "*",
+    group = augroup,
+    callback = function(args)
+        local formatters_for_buffer = conform.list_formatters(args.buf)
+        for _, formatter in ipairs(formatters_for_buffer) do
+            if skip_on_save[formatter.name] == true then
+                return
+            end
+        end
+
+        conform.format({
+            bufnr = args.buf,
+        })
+    end,
+})
 
 vim.keymap.set({ "n", "v" }, "<F3>", function()
     conform.format({
