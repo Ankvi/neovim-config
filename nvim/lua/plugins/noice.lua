@@ -31,6 +31,26 @@ return {
                         skip = true,
                     },
                 },
+                {
+                    filter = {
+                        event = "msg_show",
+                        kind = "",
+                        find = "was properly created",
+                    },
+                    opts = {
+                        skip = true,
+                    },
+                },
+                {
+                    filter = {
+                        event = "msg_show",
+                        kind = "",
+                        find = "->",
+                    },
+                    opts = {
+                        skip = true,
+                    },
+                },
             },
             lsp = {
                 -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
