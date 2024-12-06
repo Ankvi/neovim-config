@@ -47,6 +47,7 @@ return {
             "stylua",
             "shfmt",
             "csharpier",
+            "yamlfmt",
 
             -- DEBUGGING --
             "js-debug-adapter",
