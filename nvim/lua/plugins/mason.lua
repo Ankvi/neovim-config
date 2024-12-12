@@ -43,10 +43,8 @@ return {
             -- FORMATTERS --
             "black",
             "clang-format",
-            "prettierd",
             "stylua",
             "shfmt",
-            "csharpier",
             "yamlfmt",
 
             -- DEBUGGING --

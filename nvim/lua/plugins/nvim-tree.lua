@@ -42,7 +42,7 @@ return {
             },
             filters = {
                 git_ignored = false,
-                custom = "^.git$",
+                custom = { "^.git$" },
             },
             on_attach = function(bufnr)
                 local function options(description)

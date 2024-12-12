@@ -13,6 +13,7 @@ conform.setup({
         json = { "biome-check", "prettier", stop_after_first = true },
         jsonc = { "biome-check", "prettier", stop_after_first = true },
         yaml = { "prettier", "yamlfmt", stop_after_first = true },
+        yml = { "prettier", "yamlfmt", stop_after_first = true },
         lua = { "stylua" },
         python = { "isort", "black" },
         cs = {},
