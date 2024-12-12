@@ -34,9 +34,6 @@ end, opts("List all modified files in the working directory"))
 vim.keymap.set("n", "<leader><Tab>", function()
     builtin.buffers(no_preview())
 end, opts("List all currently open buffers"))
-vim.keymap.set("n", "<leader>ps", function()
-    builtin.grep_string({ search = vim.fn.input("Grep > ") })
-end, opts("Search for string in all files in working directory"))
 vim.keymap.set("n", "<leader>vh", builtin.help_tags, opts("Help tags"))
 vim.keymap.set(
     "n",
@@ -45,6 +42,7 @@ vim.keymap.set(
     opts("Open file browser in the current buffer's directory")
 )
 vim.keymap.set("n", "<leader>pV", ":Telescope file_browser<CR>", opts("Open file browser"))
+require("custom.telescope.multigrep").setup()
 
 telescope.setup({
     defaults = {
