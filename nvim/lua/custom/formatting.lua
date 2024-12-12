@@ -15,7 +15,7 @@ conform.setup({
         yaml = { "prettier", "yamlfmt", stop_after_first = true },
         lua = { "stylua" },
         python = { "isort", "black" },
-        cs = { "csharpier" },
+        cs = {},
         xml = { lsp_format = "never" },
     },
     formatters = {
@@ -33,6 +33,7 @@ conform.setup({
 
 local skip_on_save = {
     ["csharpier"] = true,
+    ["omnisharp"] = true,
 }
 
 local augroup = vim.api.nvim_create_augroup("CustomFormatting", { clear = true })
