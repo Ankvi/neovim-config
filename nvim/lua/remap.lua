@@ -1,13 +1,22 @@
 local set = vim.keymap.set
 
+-- Move entire selection up or down
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
-set("n", "J", "mzJ`z")
+-- Jump up and down in buffer and center screen on current line (zz)
 set("n", "<C-d>", "<C-d>zz")
 set("n", "<C-u>", "<C-u>zz")
+
+set("n", "J", "mzJ`z")
+
+-- Go to next/previous e.g. search result, then center screen (zz) and show cursor (zv)
 set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
+
+-- Add a new line above or below current line and stay on current line
+set("n", "<leader>o", "o<ESC>k")
+set("n", "<leader>O", "O<ESC>j")
 
 set("x", "<leader>p", '"_dP')
 
@@ -37,5 +46,3 @@ set("n", "<A-a>", "<C-w>5<")
 set("n", "<A-d>", "<C-w>5>")
 set("n", "<A-s>", "<C-w>+")
 set("n", "<A-w>", "<C-w>-")
-
-

@@ -22,15 +22,6 @@ local no_preview = require("custom.telescope.no-preview")
 
 vim.keymap.set("n", "<leader>pf", builtin.find_files, opts("List all files in working directory"))
 vim.keymap.set("n", "<C-p>", builtin.git_files, opts("List all files tracked by git in the working directory"))
-vim.keymap.set("n", "<leader>lm", function()
-    local opts = vim.tbl_extend(
-        "keep",
-        no_preview(),
-        { git_command = { "git", "ls-files", "--modified", "--exclude-standard", "--others" } }
-    )
-    -- builtin.git_files({ git_command = { "git", "ls-files", "--modified", "--exclude-standard", "--others" } })
-    builtin.git_files(opts)
-end, opts("List all modified files in the working directory"))
 vim.keymap.set("n", "<leader><Tab>", function()
     builtin.buffers(no_preview())
 end, opts("List all currently open buffers"))
@@ -42,7 +33,16 @@ vim.keymap.set(
     opts("Open file browser in the current buffer's directory")
 )
 vim.keymap.set("n", "<leader>pV", ":Telescope file_browser<CR>", opts("Open file browser"))
+vim.keymap.set("n", "<leader>pn", function()
+    builtin.find_files({
+        cwd = vim.fn.stdpath("data") .. "/lazy",
+    })
+end, {
+    desc = "List files of lazy packages",
+})
+
 require("custom.telescope.multigrep").setup()
+require("custom.telescope.list-modified-files").setup()
 
 telescope.setup({
     defaults = {
