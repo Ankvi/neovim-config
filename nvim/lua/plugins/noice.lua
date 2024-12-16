@@ -1,20 +1,15 @@
 return {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = {
-        -- add any options here
-    },
     dependencies = {
-        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
         "MunifTanjim/nui.nvim",
         "hrsh7th/nvim-cmp",
-        -- OPTIONAL:
-        --   `nvim-notify` is only needed, if you want to use the notification view.
-        --   If not available, we use `mini` as the fallback
         {
             "rcarriga/nvim-notify",
             opts = {
                 background_colour = "#000000",
+                render = "compact",
+                top_down = false,
             },
         },
     },
@@ -33,19 +28,9 @@ return {
                 },
                 {
                     filter = {
-                        event = "msg_show",
+                        event = "notify.info",
                         kind = "",
-                        find = "was properly created",
-                    },
-                    opts = {
-                        skip = true,
-                    },
-                },
-                {
-                    filter = {
-                        event = "msg_show",
-                        kind = "",
-                        find = "->",
+                        find = "NvimTree",
                     },
                     opts = {
                         skip = true,
