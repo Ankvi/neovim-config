@@ -27,6 +27,9 @@ local configs = {
         --     })
         -- end,
     },
+    denols = {
+        root_dir = lspconfig_util.root_pattern("deno.json", "deno.jsonc"),
+    },
     -- clangd = {},
     -- csharp_ls = {
     --     handlers = {
@@ -101,6 +104,8 @@ local configs = {
             "typescriptreact",
             "typescript.tsx",
         },
+        root_dir = lspconfig_util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),
+        single_file_support = false,
         settings = {
             complete_function_calls = true,
             vtsls = {
