@@ -17,15 +17,6 @@ local configs = {
     biome = {
         root_dir = lspconfig_util.root_pattern("biome.json", "biome.jsonc"),
         single_file_support = false,
-        -- on_attach = function(client, bufnr)
-        --     vim.api.nvim_create_autocmd("BufWritePre", {
-        --         group = formatting_group,
-        --         buffer = bufnr,
-        --         callback = function()
-        --
-        --         end,
-        --     })
-        -- end,
     },
     denols = {
         root_dir = lspconfig_util.root_pattern("deno.json", "deno.jsonc"),
@@ -65,9 +56,6 @@ local configs = {
                 EnableImportCompletion = true,
             },
         },
-        -- enable_roslyn_analyzers = true,
-        -- enable_import_completion = true,
-        -- organize_imports_on_format = true,
         handlers = {
             ["textDocument/definition"] = require("omnisharp_extended").handler,
         },
@@ -133,7 +121,6 @@ local configs = {
             },
         },
     },
-
     yamlls = {
         settings = {
             yaml = {
