@@ -1,6 +1,7 @@
 return {
     {
         "iamcco/markdown-preview.nvim",
+        lazy = true,
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
         build = function()
@@ -9,6 +10,7 @@ return {
     },
     {
         "MeanderingProgrammer/render-markdown.nvim",
+        lazy = true,
         opts = {},
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
