@@ -5,6 +5,8 @@ return {
 
         version = "v0.*",
 
+        --- @module 'blink.cmp'
+        --- @type blink.cmp.Config
         opts = {
             keymap = { preset = "default" },
 
@@ -13,8 +15,24 @@ return {
                 nerd_font_variant = "mono",
             },
 
+            completion = {
+                accept = {
+                    auto_brackets = { enabled = true },
+                },
+                -- menu = { border = "single" },
+                -- documentation = { window = { border = "single" } },
+            },
+
             signature = { enabled = true },
+            -- signature = { enabled = true, window = { border = "single" } },
         },
+    },
+    {
+        "echasnovski/mini.pairs",
+        version = false,
+        config = function()
+            require("mini.pairs").setup()
+        end,
     },
     -- "hrsh7th/nvim-cmp",
     -- event = { "InsertEnter", "CmdlineEnter" },
