@@ -57,6 +57,7 @@ vim.filetype.add({
         [".*.zmk"] = "dts",
         [".*.dtsi.min"] = "dts",
         [".*.keymap"] = "dts",
+        [".*/.vscode/.*%.json"] = "jsonc",
     },
     extension = {
         wofi = "rasi",
