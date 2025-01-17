@@ -45,21 +45,21 @@ local configs = {
     },
     lemminx = {},
     lua_ls = {},
-    omnisharp = {
-        cmd = { "omnisharp" },
-        settings = {
-            FormattingOptions = {
-                OrganizeImports = true,
-            },
-            RoslynExtensionsOptions = {
-                EnableAnalyzersSupport = true,
-                EnableImportCompletion = true,
-            },
-        },
-        handlers = {
-            ["textDocument/definition"] = require("omnisharp_extended").handler,
-        },
-    },
+    -- omnisharp = {
+    --     cmd = { "omnisharp" },
+    --     settings = {
+    --         FormattingOptions = {
+    --             OrganizeImports = true,
+    --         },
+    --         RoslynExtensionsOptions = {
+    --             EnableAnalyzersSupport = true,
+    --             EnableImportCompletion = true,
+    --         },
+    --     },
+    --     handlers = {
+    --         ["textDocument/definition"] = require("omnisharp_extended").handler,
+    --     },
+    -- },
     powershell_es = {
         bundle_path = require("mason-core.path").package_prefix("powershell-editor-services"),
     },

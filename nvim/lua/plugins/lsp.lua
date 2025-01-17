@@ -41,6 +41,15 @@ return {
         end,
     },
 
+    -- .NET things
+    {
+        "seblj/roslyn.nvim",
+        ft = "cs",
+        opts = {
+            -- your configuration comes here; leave empty for default settings
+        },
+    },
+
     -- TypeScript things
     -- {
     --     "pmizio/typescript-tools.nvim",
