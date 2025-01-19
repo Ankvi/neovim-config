@@ -17,9 +17,31 @@ return {
 
             completion = {
                 accept = {
-                    auto_brackets = { enabled = true },
+                    auto_brackets = { enabled = false },
                 },
+                keyword = {
+                    range = "full",
+                },
+                -- ghost_text = {
+                --     enabled = true,
+                -- },
                 -- menu = { border = "single" },
+                menu = {
+                    draw = {
+                        columns = {
+                            {
+                                "label",
+                                "label_description",
+                                gap = 1,
+                            },
+                            {
+                                "kind_icon",
+                                "kind",
+                                gap = 1,
+                            },
+                        },
+                    },
+                },
                 -- documentation = { window = { border = "single" } },
             },
 
@@ -28,23 +50,41 @@ return {
         },
     },
     {
-        "echasnovski/mini.pairs",
-        version = false,
-        config = function()
-            require("mini.pairs").setup({
-                modes = { insert = true, command = true, terminal = false },
-                -- skip autopair when next character is one of these
-                skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-                -- skip autopair when the cursor is inside these treesitter nodes
-                skip_ts = { "string" },
-                -- skip autopair when next character is closing pair
-                -- and there are more closing pairs than opening pairs
-                skip_unbalanced = true,
-                -- better deal with markdown code blocks
-                markdown = true,
-            })
-        end,
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
     },
+    -- {
+    --     "echasnovski/mini.pairs",
+    --     version = false,
+    --     config = function(plugin, opts)
+    --         require("mini.pairs").setup({
+    --             modes = { insert = true, command = false, terminal = false },
+    --
+    --             -- Global mappings. Each right hand side should be a pair information, a
+    --             -- table with at least these fields (see more in |MiniPairs.map|):
+    --             -- - <action> - one of "open", "close", "closeopen".
+    --             -- - <pair> - two character string for pair to be used.
+    --             -- By default pair is not inserted after `\`, quotes are not recognized by
+    --             -- `<CR>`, `'` does not insert pair after a letter.
+    --             -- Only parts of tables can be tweaked (others will use these defaults).
+    --             -- Supply `false` instead of table to not map particular key.
+    --             mappings = {
+    --                 ["("] = { action = "open", pair = "()", neigh_pattern = "[^\\]." },
+    --                 ["["] = { action = "open", pair = "[]", neigh_pattern = "[^\\]." },
+    --                 ["{"] = { action = "open", pair = "{}", neigh_pattern = "[^\\]." },
+    --
+    --                 [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
+    --                 ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
+    --                 ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
+    --
+    --                 ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^\\].", register = { cr = false } },
+    --                 ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%a\\].", register = { cr = false } },
+    --                 ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\].", register = { cr = false } },
+    --             },
+    --         })
+    --     end,
+    -- },
     -- "hrsh7th/nvim-cmp",
     -- event = { "InsertEnter", "CmdlineEnter" },
     -- dependencies = {

@@ -9,7 +9,11 @@ return {
         pcall(vim.api.nvim_command, "MasonUpdate")
     end,
     config = function()
-        require("mason").setup()
+        require("mason").setup({
+            registries = {
+                "github:mason-org/mason-registry",
+            },
+        })
         require("mason-lspconfig").setup({
             automatic_installation = true,
         })
