@@ -23,7 +23,7 @@ local no_preview = require("custom.telescope.no-preview")
 vim.keymap.set("n", "<leader>pf", builtin.find_files, opts("List all files in working directory"))
 vim.keymap.set("n", "<C-p>", builtin.git_files, opts("List all files tracked by git in the working directory"))
 vim.keymap.set("n", "<leader><Tab>", function()
-    builtin.buffers(no_preview())
+    builtin.buffers(vim.tbl_extend("force", no_preview(), { sort_mru = true }))
 end, opts("List all currently open buffers"))
 vim.keymap.set("n", "<leader>vh", builtin.help_tags, opts("Help tags"))
 vim.keymap.set(
