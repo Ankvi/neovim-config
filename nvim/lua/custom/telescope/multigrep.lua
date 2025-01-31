@@ -29,7 +29,15 @@ local multigrep = function(opts)
             ---@diagnostic disable-next-line: deprecated
             return vim.tbl_flatten({
                 args,
-                { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--ignore-case" },
+                {
+                    "--color=never",
+                    "--no-heading",
+                    "--with-filename",
+                    "--line-number",
+                    "--column",
+                    "--ignore-case",
+                    "--hidden",
+                },
             })
         end,
         entry_maker = make_entry.gen_from_vimgrep(opts),
