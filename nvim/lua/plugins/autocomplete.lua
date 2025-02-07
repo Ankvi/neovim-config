@@ -1,7 +1,10 @@
 return {
     {
         "saghen/blink.cmp",
-        dependencies = "rafamadriz/friendly-snippets",
+        dependencies = {
+            "rafamadriz/friendly-snippets",
+            "kristijanhusak/vim-dadbod-ui",
+        },
 
         version = "v0.*",
 
@@ -49,12 +52,15 @@ return {
             -- signature = { enabled = true, window = { border = "single" } },
 
             sources = {
-                default = { "lsp", "path", "snippets", "buffer", "dadbod" },
                 providers = {
                     dadbod = {
                         name = "Dadbod",
                         module = "vim_dadbod_completion.blink",
                     },
+                },
+                default = { "lsp", "path", "snippets", "buffer", "dadbod" },
+                per_filetype = {
+                    sql = { "dadbod", "buffer" },
                 },
             },
         },
