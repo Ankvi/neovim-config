@@ -1,5 +1,8 @@
 local set = vim.keymap.set
 
+-- Replace within selected section
+set("v", "<leader>r", ":s/\\%V")
+
 -- Move entire selection up or down
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
