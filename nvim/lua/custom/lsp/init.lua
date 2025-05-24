@@ -8,13 +8,13 @@ local servers = require("custom.lsp.servers")
 -- 	end,
 -- })
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 local common_setup_args = {
-	capabilities = capabilities,
-	-- on_attach = require("plugins.lsp.lspconfig.functions").on_attach
+  capabilities = capabilities,
+  -- on_attach = require("plugins.lsp.lspconfig.functions").on_attach
 }
 
 local lspconfig = require("lspconfig")
 for name, opts in pairs(servers.server_configs) do
-	lspconfig[name].setup(vim.tbl_extend("force", common_setup_args, opts))
+  lspconfig[name].setup(vim.tbl_extend("force", common_setup_args, opts))
 end
