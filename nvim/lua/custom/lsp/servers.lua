@@ -1,4 +1,3 @@
-local lspconfig_util = require("lspconfig.util")
 local schemastore = require("schemastore")
 
 local configs = {
@@ -13,11 +12,12 @@ local configs = {
   -- },
   -- bashls = {},
   biome = {
-    root_dir = lspconfig_util.root_pattern("biome.json", "biome.jsonc"),
-    single_file_support = false,
+    -- root_dir = lspconfig_util.root_pattern("biome.json", "biome.jsonc"),
+    -- single_file_support = false,
   },
   denols = {
-    root_dir = lspconfig_util.root_pattern("deno.json", "deno.jsonc"),
+    root_markers = { "deno.json", "deno.jsonc" },
+    workspace_required = true,
   },
   -- clangd = {},
   -- csharp_ls = {
@@ -77,20 +77,10 @@ local configs = {
       },
     },
   },
-  tailwindcss = {
-    root_dir = lspconfig_util.root_pattern("tailwind.config.js"),
-  },
+  tailwindcss = {},
   vimls = {},
   vtsls = {
-    filetypes = {
-      "javascript",
-      "javascriptreact",
-      "javascript.jsx",
-      "typescript",
-      "typescriptreact",
-      "typescript.tsx",
-    },
-    root_dir = lspconfig_util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),
+    root_markers = { ".git", "tsconfig.json" },
     single_file_support = false,
     settings = {
       complete_function_calls = true,

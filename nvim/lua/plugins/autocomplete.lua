@@ -6,7 +6,7 @@ return {
       "kristijanhusak/vim-dadbod-ui",
     },
 
-    version = "v1.3.1",
+    version = "v1.4.1",
 
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
@@ -20,7 +20,7 @@ return {
 
       completion = {
         accept = {
-          auto_brackets = { enabled = true },
+          auto_brackets = { enabled = false },
         },
         keyword = {
           range = "full",
@@ -121,11 +121,11 @@ return {
   --     end
   --   end,
   -- },
-  -- {
-  --   "windwp/nvim-autopairs",
-  --   event = "InsertEnter",
-  --   opts = {},
-  -- },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {},
+  },
   -- {
   --     "echasnovski/mini.pairs",
   --     version = false,
