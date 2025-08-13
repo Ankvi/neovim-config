@@ -80,7 +80,7 @@ local configs = {
   roslyn_ls = {
     cmd = {
       "dotnet",
-      "/home/andreas/.local/share/nvim/roslyn/Microsoft.CodeAnalysis.LanguageServer.dll",
+      vim.fn.stdpath("data") .. "/roslyn/Microsoft.CodeAnalysis.LanguageServer.dll",
       "--logLevel",
       "Information",
       "--extensionLogDirectory",
