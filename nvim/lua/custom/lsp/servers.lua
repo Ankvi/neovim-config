@@ -77,6 +77,18 @@ local configs = {
       },
     },
   },
+  roslyn_ls = {
+    cmd = {
+      "dotnet",
+      "/home/andreas/.local/share/nvim/roslyn/Microsoft.CodeAnalysis.LanguageServer.dll",
+      "--logLevel",
+      "Information",
+      "--extensionLogDirectory",
+      "/tmp/roslyn_ls/logs",
+      "--stdio",
+    },
+    -- root_markers = { "*.sln" },
+  },
   tailwindcss = {},
   vimls = {},
   vtsls = {
