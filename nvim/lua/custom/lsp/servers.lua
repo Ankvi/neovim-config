@@ -58,9 +58,9 @@ local configs = {
   --         ["textDocument/definition"] = require("omnisharp_extended").handler,
   --     },
   -- },
-  powershell_es = {
-    bundle_path = require("mason-core.path").package_prefix("powershell-editor-services"),
-  },
+  -- powershell_es = {
+  --   bundle_path = require("mason-core.path").package_prefix("powershell-editor-services"),
+  -- },
   pyright = {
     settings = {
       python = {

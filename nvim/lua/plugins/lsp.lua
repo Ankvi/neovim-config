@@ -1,31 +1,17 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    event = "BufReadPost",
+    event = "VeryLazy",
     dependencies = {
-      { "nvim-telescope/telescope.nvim" },
-      { "lbrayner/vim-rzip" },
-      {
-        "Hoffs/omnisharp-extended-lsp.nvim",
-      },
-      {
-        "Decodetalkers/csharpls-extended-lsp.nvim",
-      },
-      {
-        "b0o/schemastore.nvim",
-      },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "saghen/blink.cmp" },
-      {
-        "mason-org/mason.nvim",
-        version = "^1.0.0",
-        dependencies = {
-          {
-            "mason-org/mason-lspconfig.nvim",
-            version = "^1.0.0",
-          },
-        },
-      },
+      "nvim-telescope/telescope.nvim",
+      "lbrayner/vim-rzip",
+      "Hoffs/omnisharp-extended-lsp.nvim",
+      "Decodetalkers/csharpls-extended-lsp.nvim",
+      "b0o/schemastore.nvim",
+      "hrsh7th/cmp-nvim-lsp",
+      "saghen/blink.cmp",
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
     },
     config = function()
       require("custom.lsp")

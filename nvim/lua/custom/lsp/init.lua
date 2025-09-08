@@ -14,7 +14,7 @@ local common_setup_args = {
   -- on_attach = require("plugins.lsp.lspconfig.functions").on_attach
 }
 
-vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("debug")
 -- local lspconfig = require("lspconfig")
 for name, opts in pairs(servers.server_configs) do
   -- local merged = vim.tbl_extend("force", common_setup_args, opts)
