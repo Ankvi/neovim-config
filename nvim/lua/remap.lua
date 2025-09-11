@@ -30,6 +30,9 @@ set("n", "<leader>Y", '"+Y')
 set("n", "<leader>d", '"_d')
 set("v", "<leader>d", '"_d')
 
+set("n", "<leader>xo", vim.diagnostic.open_float, {
+  desc = "Diagnostics: Open float",
+})
 set("n", "<C-k>", "<cmd>cnext<CR>zz")
 set("n", "<C-j>", "<cmd>cprev<CR>zz")
 set("n", "<leader>k", "<cmd>lnext<CR>zz")
