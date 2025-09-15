@@ -1,0 +1,14 @@
+{
+  "import-esm-deconstruct": {
+    "prefix": "imp",
+    "body": [
+      "import {${2}} from \"${1:module}\""
+    ]
+  },
+  "import-esm-default": {
+    "prefix": "imd",
+    "body": [
+      "import ${2:name} from \"${1:module}\""
+    ]
+  }
+}
