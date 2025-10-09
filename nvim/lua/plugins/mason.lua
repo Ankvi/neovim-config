@@ -24,7 +24,6 @@ return {
       "jsonls",
       "lemminx",
       "lua_ls",
-      "omnisharp",
       "powershell_es",
       "pyright",
       "pylsp",

@@ -5,8 +5,6 @@ return {
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "lbrayner/vim-rzip",
-      "Hoffs/omnisharp-extended-lsp.nvim",
-      "Decodetalkers/csharpls-extended-lsp.nvim",
       "b0o/schemastore.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "saghen/blink.cmp",
