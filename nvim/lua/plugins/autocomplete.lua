@@ -6,7 +6,7 @@ return {
       "kristijanhusak/vim-dadbod-ui",
     },
 
-    version = "v1.6.0",
+    version = "v1.*",
 
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config

@@ -9,6 +9,7 @@ o.fileencoding = "utf-8"
 o.guicursor = ""
 o.number = true
 o.relativenumber = true
+o.winborder = "rounded"
 
 o.title = true
 o.titlelen = 0
