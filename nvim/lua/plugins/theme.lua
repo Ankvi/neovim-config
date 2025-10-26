@@ -1,19 +1,29 @@
 return {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = false,
-    priority = 1000,
-    config = function()
-        require("catppuccin").setup({
-            transparent_background = true,
-            integrations = {
-                blink_cmp = true,
-            },
-        })
-        vim.cmd.colorscheme("catppuccin")
-    end,
+  "catppuccin/nvim",
+  name = "catppuccin",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require("catppuccin").setup({
+      flavour = "mocha",
+      transparent_background = true,
+      integrations = {
+        blink_cmp = true,
+      },
+    })
+    vim.cmd.colorscheme("catppuccin")
+  end,
 }
 -- return {
+--   "rebelot/kanagawa.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     require("kanagawa").setup()
+--     vim.cmd.colorscheme("kanagawa")
+--   end,
+-- }
+-- -- return {
 --     "folke/tokyonight.nvim",
 --     lazy = false,
 --     priority = 1000,
