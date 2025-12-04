@@ -9,7 +9,7 @@ conform.setup({
     typescript = { "biome-check", "prettier", stop_after_first = true },
     typescriptreact = { "biome-check", "prettier", stop_after_first = true },
     css = { "biome-check", "prettier" },
-    html = { "prettier" },
+    html = { "biome-check", "prettier" },
     json = { "biome-check", "prettier", stop_after_first = true },
     jsonc = { "biome-check", "prettier", stop_after_first = true },
     yaml = { "prettier", "yamlfmt", stop_after_first = true },
