@@ -1,0 +1,18 @@
+require("dap-go").setup()
+-- local dap = require("dap")
+--
+-- dap.configurations.go = {
+--   {
+--     type = "delve",
+--     name = "Debug current file",
+--     request = "launch",
+--     program = "${file}",
+--   },
+--   {
+--     type = "delve",
+--     name = "Debug test",
+--     request = "launch",
+--     mode = "test",
+--     program = "${file}",
+--   },
+-- }

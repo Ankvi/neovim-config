@@ -1,21 +1,21 @@
 local dap = require("dap")
 
-require("custom.dap.languages").setup()
+require("custom.dap.languages")
 
 local dapui = require("dapui")
 dapui.setup()
 
 local dapUiConfigEvent = "dapui_config"
 dap.listeners.after.event_initialized[dapUiConfigEvent] = function()
-	dapui.open()
+  dapui.open()
 end
 
 dap.listeners.after.event_terminated[dapUiConfigEvent] = function()
-	dapui.close()
+  dapui.close()
 end
 
 dap.listeners.after.event_exited[dapUiConfigEvent] = function()
-	dapui.close()
+  dapui.close()
 end
 
 local opts = {}
