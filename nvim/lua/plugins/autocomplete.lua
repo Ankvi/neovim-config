@@ -4,6 +4,7 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       "kristijanhusak/vim-dadbod-ui",
+      "giuxtaposition/blink-cmp-copilot",
     },
 
     version = "v1.*",
