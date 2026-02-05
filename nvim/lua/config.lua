@@ -48,6 +48,8 @@ g.mapleader = " "
 
 vim.filetype.add({
   pattern = {
+    [".*/.github/workflows/.*%.yml"] = "yaml.ghaction",
+    [".*/.github/workflows/.*%.yaml"] = "yaml.ghaction",
     [".*/sway/config.d/.*%.conf"] = "swayconfig",
     [".*/tmux/.*%.conf"] = "tmux",
     [".*/hypr/.*%.conf"] = "hyprlang",

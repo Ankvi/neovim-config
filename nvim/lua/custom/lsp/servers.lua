@@ -96,6 +96,7 @@ local configs = {
     single_file_support = false,
   },
   yamlls = {
+    filetypes = { "yaml", "yaml.ghaction" },
     settings = {
       yaml = {
         schemaStore = {
