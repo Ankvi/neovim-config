@@ -8,7 +8,9 @@ return {
       flavour = "mocha",
       transparent_background = true,
       integrations = {
-        blink_cmp = true,
+        blink_cmp = {
+          style = "bordered",
+        },
       },
     })
     vim.cmd.colorscheme("catppuccin")

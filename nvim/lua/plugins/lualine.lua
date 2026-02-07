@@ -8,10 +8,10 @@ return {
   },
   config = function()
     require("lualine").setup({
-      options = {
-        -- theme = "kanagawa",
-        theme = "catppuccin",
-      },
+      -- options = {
+      -- theme = "kanagawa",
+      -- theme = "catppuccin",
+      -- },
       sections = {
         lualine_b = { "diagnostics" },
         lualine_x = { "filetype" },
