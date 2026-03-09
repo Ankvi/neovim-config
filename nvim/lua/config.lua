@@ -61,6 +61,7 @@ vim.filetype.add({
     [".*.dtsi.min"] = "dts",
     [".*.keymap"] = "dts",
     [".*/.vscode/.*%.json"] = "jsonc",
+    [".*/Dockerfile.*"] = "dockerfile",
   },
   extension = {
     wofi = "rasi",
