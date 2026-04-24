@@ -8,7 +8,7 @@ return {
     local lint = require("lint")
 
     lint.linters_by_ft = {
-      markdown = { "markdownlint" },
+      -- markdown = { "rumdl" },
       cpp = { "cpplint" },
       ["yaml.ghaction"] = { "actionlint" },
       python = { "pylint" },

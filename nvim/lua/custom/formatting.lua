@@ -3,7 +3,7 @@ local conform = require("conform")
 conform.setup({
   formatters_by_ft = {
     sh = { "shfmt" },
-    markdown = { "prettier" },
+    markdown = { "prettier", "rumdl", "markdownlint", stop_after_first = true },
     javascript = { "biome-check", "prettier", stop_after_first = true },
     javascriptreact = { "biome-check", "prettier", stop_after_first = true },
     typescript = { "biome-check", "prettier", stop_after_first = true },

@@ -82,6 +82,11 @@ local configs = {
     },
     -- root_markers = { "*.sln" },
   },
+  rumdl = {
+    filetypes = { "markdown" },
+    cmd = { "rumdl", "server" },
+    root_markers = { ".git" },
+  },
   tailwindcss = {},
   vimls = {},
   vtsls = {
